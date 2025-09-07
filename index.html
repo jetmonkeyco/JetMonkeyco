@@ -15,21 +15,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* Teal palette from your logo */
-      --bg-top:#0a4850;
-      --bg-mid:#0a3f45;
-      --bg-btm:#082e33;
-      --ink:#ffffff;
-      --muted:#bfeff0;
-      --accent:#f5a623;   /* ring orange */
-      --accent-2:#18cfd1; /* logo teal */
-      --card:#0c3b41;
+      /* Palette pulled from your mark */
+      --bg-top:#0a4850;  --bg-mid:#0a3f45;  --bg-btm:#082e33;
+      --ink:#ffffff;     --muted:#bfeff0;
+      --accent:#f5a623;  --accent-2:#18cfd1;  --card:#0c3b41;
 
-      /* >>> Header logo alignment controls <<< */
-      --logo-size: 84px;        /* coin size on desktop */
-      --logo-zoom: 1.60;        /* how much to crop/zoom the PNG */
-      --logo-x: 0px;            /* horizontal nudge (+right / -left) */
-      --logo-y: -6px;           /* vertical nudge (+down / -up) */
+      /* Header logo controls (easy to tune) */
+      --logo-size: 96px;         /* overall coin size */
+      --logo-zoom: 1.68;         /* how much we crop into the PNG */
+      --logo-x: 0px;             /* nudge horizontally (+right / -left) */
+      --logo-y: -6px;            /* nudge vertically   (+down  / -up) */
     }
 
     *{box-sizing:border-box}
@@ -45,7 +40,7 @@
       position:relative;
     }
 
-    /* subtle glow so gradient feels smoother, covers full viewport */
+    /* subtle glows to make the gradient feel smoother on scroll */
     body::before{
       content:"";
       position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -65,15 +60,17 @@
       border-bottom:1px solid rgba(255,255,255,.10);
     }
     .nav{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:14px;font-weight:800;letter-spacing:.2px}
+    .brand{display:flex;align-items:center;gap:16px;font-weight:800;letter-spacing:.2px}
 
-    /* Header logo — big, tight crop, easy to align with variables */
+    /* Header logo — tight, centered, balanced with text */
     .logo-img{
       width:var(--logo-size); height:var(--logo-size);
       border-radius:50%; overflow:hidden;
       box-shadow:0 10px 20px rgba(0,0,0,.28);
       display:flex; align-items:center; justify-content:center;
-      background:#0a4850; /* hidden by image fill */
+      background:#0a4850; /* hidden by fill; prevents white halos on load */
+      /* Optional: a soft outer glow that matches your vibe */
+      /* box-shadow:0 8px 20px rgba(0,0,0,.28), 0 0 0 4px rgba(24,207,209,.15); */
     }
     .logo-img img{
       width:100%; height:100%;
@@ -82,11 +79,11 @@
       border-radius:50%; display:block;
     }
 
-    @media (max-width:620px){
-      :root{ --logo-size: 68px; --logo-zoom: 1.62; --logo-y: -6px; }
+    @media (max-width:900px){
+      :root{ --logo-size: 84px; --logo-zoom: 1.70; --logo-y: -6px; }
     }
-    @media (max-width:420px){
-      :root{ --logo-size: 60px; --logo-zoom: 1.64; --logo-y: -6px; }
+    @media (max-width:520px){
+      :root{ --logo-size: 68px; --logo-zoom: 1.72; --logo-y: -6px; }
     }
 
     .btn-nav{
@@ -115,7 +112,7 @@
     .card{background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
     .card h3{margin:0 0 8px;font-size:18px;color:#fff}
 
-    /* Big hero logo (unchanged) */
+    /* Big hero logo (kept as-is) */
     .illu{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#fff;border:3px solid var(--accent);box-shadow:0 16px 40px rgba(245,166,35,.18);display:flex;align-items:center;justify-content:center;padding:10px}
     .illu img{width:100%;height:auto;object-fit:contain}
 
@@ -126,7 +123,6 @@
     details{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px}
     summary{cursor:pointer;font-weight:600}
 
-    /* Footer — no bottom line */
     footer{margin-top:auto;border-top:none;background:transparent;color:#fff}
     .foot{max-width:1100px;margin:0 auto;padding:28px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
     section:last-of-type{padding-bottom:64px}
