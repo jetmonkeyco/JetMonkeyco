@@ -3,62 +3,89 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>JetMonkey — Coming in Hot 🐒🌊</title>
+  <title>JetMonkey — Coming in Hot</title>
   <meta name="description" content="JetMonkey is a jetski lifestyle brand. Apparel, gear, and attitude—built for water addicts." />
   <meta property="og:title" content="JetMonkey — Coming in Hot" />
   <meta property="og:description" content="Jetski lifestyle apparel & gear. Sign up to get early drops and discounts." />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="/logo.png" />
-  <meta name="theme-color" content="#0ea5e9" />
+  <meta property="og:image" content="https://jetmokey.netlify.app/logo.png" />
+  <meta name="theme-color" content="#12D3D3" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#041319; --ink:#e6fbff; --muted:#a5c7cf; --accent:#00D3B7; --accent-2:#0ea5e9; --card:#072028;
+      /* Palette pulled from your logo */
+      --bg:#0b2f33;         /* deep teal */
+      --bg2:#0a4750;        /* medium teal */
+      --ink:#f6fffe;        /* off-white */
+      --muted:#c9eef2;      /* pale aqua */
+      --accent:#F5A623;     /* ring orange */
+      --accent-2:#12D3D3;   /* logo teal */
+      --accent-3:#E84A3C;   /* goggle red */
+      --accent-4:#2FA5FF;   /* lens blue */
+      --brown:#3b2317;      /* monkey brown (for borders/shadows) */
+      --card:#0f3a41;       /* card bg */
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Outfit,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%, rgba(14,165,233,.25), transparent 60%),linear-gradient(180deg,#031317, #051c23 30%, #041319 100%);color:var(--ink);}
-    a{color:var(--accent-2);text-decoration:none}
+    body{
+      margin:0;
+      font-family:Outfit,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:radial-gradient(1200px 800px at 80% -10%, rgba(47,165,255,.25), transparent 60%),
+                 linear-gradient(180deg,var(--bg2) 0%, var(--bg2) 30%, var(--bg) 100%);
+      color:var(--ink);
+    }
+    a{color:var(--accent-4);text-decoration:none}
     .wrapper{display:flex;flex-direction:column;min-height:100%}
-    header{position:sticky;top:0;backdrop-filter:saturate(150%) blur(8px);background:linear-gradient(180deg, rgba(5,28,35,.75), rgba(5,28,35,.35));border-bottom:1px solid rgba(255,255,255,.06);}
+
+    header{
+      position:sticky;top:0;
+      backdrop-filter:saturate(150%) blur(10px);
+      background:linear-gradient(180deg, rgba(10,71,80,.85), rgba(10,71,80,.45));
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
     .nav{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
-    .logo-img{width:56px;height:56px;border-radius:50%;overflow:hidden;box-shadow:0 8px 20px rgba(0, 211, 183, .2)}
-    .logo-img img{width:100%;height:100%;object-fit:cover;}
-    .badges{display:flex;gap:10px}
-    .chip{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);color:var(--muted)}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo-img{width:56px;height:56px;border-radius:16px;overflow:hidden;box-shadow:0 10px 24px rgba(47,165,255,.25), 0 0 0 2px rgba(245,166,35,.6)}
+    .logo-img img{width:100%;height:100%;object-fit:cover}
+    .brand-title{font-weight:800;letter-spacing:.2px}
+    .brand-sub{font-size:12px;color:var(--muted);line-height:1}
+
+    .badges{display:flex;gap:12px;align-items:center}
+    .btn{padding:12px 18px;border-radius:999px;background:linear-gradient(90deg,var(--accent-3),var(--accent-4));color:#032428;border:none;font-weight:800;cursor:pointer;letter-spacing:.2px;box-shadow:0 8px 24px rgba(47,165,255,.25)}
+    .btn-alt{background:linear-gradient(90deg,var(--accent),var(--accent-2));}
+    .chip{font-size:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:var(--ink)}
 
     .hero{max-width:1100px;margin:0 auto;padding:60px 20px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
     @media (max-width:900px){.hero{grid-template-columns:1fr;gap:20px} .badges{display:none}}
     .headline{font-size:clamp(36px,6vw,64px);line-height:1.0;margin:0 0 14px;font-weight:800}
+    .headline .grad{background:linear-gradient(90deg,var(--accent-2),var(--accent-4));-webkit-background-clip:text;background-clip:text;color:transparent}
     .sub{font-size:clamp(16px,2.5vw,20px);color:var(--muted);max-width:56ch}
-    .panel{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
-    .form{display:flex;gap:10px;margin-top:14px}
-    .input{flex:1;min-width:160px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.15);background:#0b222a;color:var(--ink);outline:none}
-    .btn{padding:12px 16px;border-radius:12px;background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#01242b;border:none;font-weight:700;cursor:pointer}
-    .btn:active{transform:translateY(1px)}
-    .mini{font-size:12px;color:var(--muted)}
+
+    .panel{background:linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:18px}
+    .form{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .input{flex:1;min-width:200px;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:#0e2f35;color:var(--ink);outline:none}
 
     .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
     @media (max-width:900px){.card-grid{grid-template-columns:1fr}}
-    .card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:16px}
+    .card{background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(59,35,23,.15)}
     .card h3{margin:0 0 8px;font-size:18px}
-    .illu{aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:#fff;border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;padding:10px}
+
+    .illu{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#fff;border:3px solid var(--accent);box-shadow:0 16px 40px rgba(245,166,35,.2);display:flex;align-items:center;justify-content:center;padding:10px}
     .illu img{width:100%;height:auto;object-fit:contain}
 
     section{max-width:1100px;margin:0 auto;padding:30px 20px}
     .section-title{font-size:22px;margin:0 0 14px}
 
     .faq{display:grid;gap:10px}
-    details{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px}
+    details{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px}
     summary{cursor:pointer;font-weight:600}
 
-    footer{margin-top:auto;border-top:1px solid rgba(255,255,255,.08);background:#061b22}
+    footer{margin-top:auto;border-top:1px solid rgba(255,255,255,.12);background:#072a30}
     .foot{max-width:1100px;margin:0 auto;padding:28px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
     .social{display:flex;gap:14px}
-    .social a{display:inline-flex;padding:10px;border-radius:12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)}
+    .social a{display:inline-flex;padding:10px;border-radius:12px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.18)}
   </style>
 </head>
 <body>
@@ -68,11 +95,12 @@
       <div class="brand">
         <div class="logo-img"><img src="https://jetmokey.netlify.app/logo.png" alt="JetMonkey Logo"></div>
         <div>
-          <div style="font-size:18px;line-height:1">JetMonkey</div>
-          <div style="font-size:12px;color:var(--muted);line-height:1">Water • Speed • Style</div>
+          <div class="brand-title">JetMonkey</div>
+          <div class="brand-sub">Water • Speed • Style</div>
         </div>
       </div>
       <div class="badges">
+        <a href="#shop" class="btn">Shop</a>
         <span class="chip">Early access</span>
         <span class="chip">Drops soon</span>
       </div>
@@ -82,8 +110,7 @@
   <main>
     <section class="hero">
       <div>
-        <h1 class="headline">Jetski lifestyle apparel — 
-          <span style="background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent">coming in hot</span>.</h1>
+        <h1 class="headline">Jetski lifestyle apparel — <span class="grad">coming in hot</span>.</h1>
         <p class="sub">Premium tees, rashguards, and gear inspired by stand-up days and glass-water mornings. Be first to know about limited runs, rider collabs, and launch discounts.</p>
 
         <div class="panel">
@@ -91,8 +118,9 @@
             <input type="hidden" name="form-name" value="newsletter" />
             <input class="input" type="email" name="email" placeholder="Your email" required />
             <button class="btn" type="submit">Get early access</button>
+            <a class="btn btn-alt" href="#shop">Shop now</a>
           </form>
-          <div class="mini">We’ll only email for launches & important updates. No spam.</div>
+          <div class="mini" style="color:var(--muted);margin-top:8px">We’ll only email for launches & important updates. No spam.</div>
         </div>
 
         <div class="card-grid">
@@ -114,9 +142,18 @@
       <div>
         <div class="illu"><img src="https://jetmokey.netlify.app/logo.png" alt="JetMonkey Logo Large"></div>
         <div class="card" style="margin-top:14px">
-          <strong>Brand teaser</strong>
-          <p class="mini">JetMonkey blends classic stand-up energy with modern lines. Tees, hoodies, hats, wetsuit accents & more.</p>
+          <strong>Shop teaser</strong>
+          <p class="mini">Colors pulled from the JetMonkey mark — teal, orange, lens blue and red accents. Tees, hoodies, hats, wetsuit accents & more.</p>
         </div>
+      </div>
+    </section>
+
+    <section id="shop">
+      <h2 class="section-title">Shop</h2>
+      <div class="card-grid">
+        <div class="card"><h3>Tees</h3><p class="mini">Ultra-soft, pre-shrunk. First drop features the JetMonkey crest.</p></div>
+        <div class="card"><h3>Hoodies</h3><p class="mini">Mid-weight fleece with water-blue drawcords.</p></div>
+        <div class="card"><h3>Hats</h3><p class="mini">5-panel and snapback in teal/orange colorways.</p></div>
       </div>
     </section>
 
@@ -133,7 +170,7 @@
         </details>
         <details>
           <summary>Can I partner as a local rider or shop?</summary>
-          <div class="mini">Absolutely. Email <a href="mailto:hello@jetmonkey.co">hello@jetmonkey.co</a> with subject “Partner”.</div>
+          <div class="mini">Absolutely. Email <a href="mailto:jetmonkey.co@gmail.com">jetmonkey.co@gmail.com</a> with subject “Partner”.</div>
         </details>
       </div>
     </section>
@@ -143,21 +180,12 @@
     <div class="foot">
       <div class="mini">© <span id="y"></span> JetMonkey. All rights reserved.</div>
       <div class="social">
-        <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 100 10 5 5 0 000-10zm0-5C8.4 2 7.9 2 6.7 2.1 5.5 2.2 4.7 2.4 4 2.7a4.7 4.7 0 00-1.7 1A4.7 4.7 0 00.7 5.3c-.3.7-.5 1.5-.6 2.7C0 9.3 0 9.8 0 13.4s0 4.1.1 5.3c.1 1.2.3 2  .6 2.7.3.7.7 1.2 1.3 1.8.6.6 1.1 1 1.8 1.3.7.3 1.5.5 2.7.6 1.2.1 1.8.1 5.3.1s4.1 0 5.3-.1c1.2-.1 2-.3 2.7-.6a4.7 4.7 0 001.8-1.3 4.7 4.7 0 001.3-1.8c.3-.7.5-1.5.6-2.7.1-1.2.1-1.8.1-5.3s0-4.1-.1-5.3c-.1-1.2-.3-2-.6-2.7A4.7 4.7 0 0021.3 1a4.7 4.7 0 00-1.8-1.3c-.7-.3-1.5-.5-2.7-.6C15.6  -1 15.1 -1 11.5 -1S7.4 -1 6.2 -.9c-1.2.1-2 .3-2.7.6A4.7 4.7 0 001.7 1 4.7 4.7 0 00.4 2.8c-.3.7-.5 1.5-.6 2.7C-.3 6.7 -.3 7.2 -.3 10.8v2.4c0 3.6 0 4.1.1 5.3.1 1.2.3 2  .6 2.7.3.7.7 1.2 1.3 1.8.6.6 1.1 1 1.8 1.3.7.3 1.5.5 2.7.6 1.2.1 1.8.1 5.3.1s4.1 0 5.3-.1c1.2-.1 2-.3 2.7-.6a4.7 4.7 0 001.8-1.3 4.7 4.7 0 001.3-1.8c.3-.7.5-1.5.6-2.7.1-1.2.1-1.8.1-5.3s0-4.1-.1-5.3c-.1-1.2-.3-2-.6-2.7A4.7 4.7 0 0021.3 1a4.7 4.7 0 00-1.8-1.3c-.7-.3-1.5-.5-2.7-.6C15.6 -1 15.1 -1 11.5 -1z" fill="currentColor"/></svg>
-        </a>
-        <a href="https://tiktok.com/" aria-label="TikTok" target="_blank" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><path d="M21 8.3a8 8 0 01-4.4-1.4v6.6a7.5 7.5 0 11-6.5-7.4V9a3.5 3.5 0 103.4 3.5V0h3.1a8.3 8.3 0 006.4 6.3V8.3z"/></svg>
-        </a>
-        <a href="mailto:hello@jetmonkey.co" aria-label="Email">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v12H3z" stroke="currentColor"/><path d="M3 7l9 7 9-7" stroke="currentColor"/></svg>
-        </a>
+        <a href="https://instagram.com/" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
+        <a href="mailto:jetmonkey.co@gmail.com" aria-label="Email">Email</a>
       </div>
     </div>
   </footer>
 </div>
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
