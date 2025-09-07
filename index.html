@@ -16,20 +16,19 @@
 
   <style>
     :root{
-      /* Teal palette from logo */
       --bg-top:#0a4850;
       --bg-mid:#0a3f45;
       --bg-btm:#082e33;
       --ink:#ffffff;
       --muted:#bfeff0;
-      --accent:#f5a623;   /* ring orange */
-      --accent-2:#18cfd1; /* logo teal */
+      --accent:#f5a623;
+      --accent-2:#18cfd1;
       --card:#0c3b41;
     }
 
     *{box-sizing:border-box}
     html,body{height:100%}
-    html{background:#082e33} /* mobile fallback */
+    html{background:#082e33}
 
     body{
       margin:0;
@@ -41,7 +40,6 @@
       position:relative;
     }
 
-    /* global glow for smoother gradient feel */
     body::before{
       content:"";
       position:fixed; inset:0; z-index:0; pointer-events:none;
@@ -53,7 +51,6 @@
 
     .wrapper{display:flex;flex-direction:column;min-height:100%; position:relative; z-index:1}
 
-    /* Header */
     header{
       position:sticky; top:0; z-index:5;
       backdrop-filter:saturate(150%) blur(8px);
@@ -63,27 +60,23 @@
     .nav{max-width:1100px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.2px}
 
-    /* >>> Tighter header logo fit <<< */
+    /* Header logo — bigger, no orange border */
     .logo-img{
-      width:60px; height:60px;              /* a bit larger coin */
-      border-radius:50%; overflow:hidden;
-      outline:3px solid var(--accent);      /* orange ring */
-      box-shadow:0 8px 18px rgba(0,0,0,.28);
-      background:#0a4850;                   /* hidden by image fill */
+      width:68px; height:68px;   /* larger than before */
+      border-radius:50%;
+      overflow:hidden;
+      box-shadow:0 6px 16px rgba(0,0,0,.25);
       display:flex; align-items:center; justify-content:center;
+      background:#0a4850;
     }
     .logo-img img{
       width:100%; height:100%;
-      object-fit:cover;                     /* fill circle */
-      object-position:center;
-      transform:scale(1.22);                /* pushes artwork closer to rim */
+      object-fit:cover;
       border-radius:50%;
       display:block;
     }
-    /* On small screens, scale coin down but keep tight crop */
     @media (max-width:520px){
-      .logo-img{width:52px;height:52px}
-      .logo-img img{transform:scale(1.22)}
+      .logo-img{width:56px;height:56px}
     }
 
     .btn-nav{
@@ -93,7 +86,6 @@
     }
     .btn-nav:hover{background:var(--accent-2)}
 
-    /* Hero */
     .hero{max-width:1100px;margin:0 auto;padding:60px 20px 40px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center}
     @media (max-width:900px){.hero{grid-template-columns:1fr;gap:20px}}
     .headline{font-size:clamp(36px,6vw,64px);line-height:1.0;margin:0 0 14px;font-weight:800;color:var(--accent)}
@@ -106,13 +98,11 @@
     .btn:active{transform:translateY(1px)}
     .mini{font-size:12px;color:var(--muted)}
 
-    /* Feature cards */
     .card-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:22px}
     @media (max-width:900px){.card-grid{grid-template-columns:1fr}}
     .card{background:var(--card);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:16px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
     .card h3{margin:0 0 8px;font-size:18px;color:#fff}
 
-    /* Big hero logo (unchanged) */
     .illu{aspect-ratio:1/1;border-radius:16px;overflow:hidden;background:#fff;border:3px solid var(--accent);box-shadow:0 16px 40px rgba(245,166,35,.18);display:flex;align-items:center;justify-content:center;padding:10px}
     .illu img{width:100%;height:auto;object-fit:contain}
 
@@ -123,7 +113,6 @@
     details{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:12px}
     summary{cursor:pointer;font-weight:600}
 
-    /* Footer — no bottom line */
     footer{margin-top:auto;border-top:none;background:transparent;color:#fff}
     .foot{max-width:1100px;margin:0 auto;padding:28px 20px;display:flex;gap:16px;justify-content:space-between;align-items:center}
     section:last-of-type{padding-bottom:64px}
@@ -181,7 +170,6 @@
       </div>
 
       <div>
-        <!-- Big hero logo stays as-is -->
         <div class="illu">
           <img src="https://jetmokey.netlify.app/logo.png" alt="JetMonkey Logo Large">
         </div>
@@ -227,8 +215,6 @@
     </div>
   </footer>
 </div>
-<script>
-  document.getElementById('y').textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById('y').textContent = new Date().getFullYear();</script>
 </body>
 </html>
